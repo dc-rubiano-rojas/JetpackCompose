@@ -17,7 +17,6 @@ import androidx.compose.ui.graphics.Color
 
 @Composable()
 fun MyRadioButtonList(name: String, onItemSelected:(String) -> Unit) {
-
     Column(Modifier.fillMaxWidth()) {
         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             RadioButton(selected = name == "Daniel", onClick = { onItemSelected("Daniel")})

@@ -32,6 +32,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jetpackcomponentscatalog.components.MyAlertDialog
+import com.example.jetpackcomponentscatalog.components.MyConfirmationDialog
+import com.example.jetpackcomponentscatalog.components.MyCustomDialog
+import com.example.jetpackcomponentscatalog.components.MySimpleCustomDialog
 import com.example.jetpackcomponentscatalog.ui.theme.JetpackComponentsCatalogTheme
 import com.example.jetpackcomponentscatalog.utils.CheckInfo
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
@@ -108,8 +111,34 @@ class MainActivity : ComponentActivity() {
                       //  AdvancedSlider()
                         //MyRangeSlider()
                     //}
-                    MyAlertDialog()
 
+                    var show by remember { mutableStateOf(false) }
+                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        Button(onClick = { show = true }) {
+                            Text(text = "Show Dialog")
+
+                        }
+                    }
+//                   MyAlertDialog(
+//                        show = show,
+//                        onDismiss = { show = false },
+//                        onConfirm = { Log.i("tag: ", "CONFIRM") }
+//                    )
+
+//                    MySimpleCustomDialog(
+//                        show = show,
+//                        onDismiss = { show = false }
+//                    )
+
+//                    MyCustomDialog(
+//                        show = show,
+//                        onDismiss = { show = false }
+//                    )
+
+                    MyConfirmationDialog(
+                        show = show,
+                        onDismiss = { show = false }
+                    )
                 }
             }
         }
